@@ -1,5 +1,6 @@
 # Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction
-An implementation for Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
+An implementation for Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction[1].
+Convolutional Generative Stochastic Network is a particular variant of Generative Stochastic Network (Y.Bengio 2013)[2].
 
 I will update the readme soon.
 
