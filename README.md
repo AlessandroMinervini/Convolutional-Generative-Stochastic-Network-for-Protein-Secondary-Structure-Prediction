@@ -2,7 +2,7 @@
 An implementation for Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
 
 
-# References
+## References
 Jian Zhou, Olga G. Troyanskaya (2014)
 Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
 
