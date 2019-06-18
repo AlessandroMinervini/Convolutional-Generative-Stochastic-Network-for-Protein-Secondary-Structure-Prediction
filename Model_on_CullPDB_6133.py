@@ -43,7 +43,7 @@ def load_cb513():
     aminoacids = 700
     features = 57
 
-    data = np.load('/content/drive/My Drive/ProteinsPredictions/cb513+profile_split1.npy')
+    data = np.load('dataset_path')
 
     # Reshape data
     data = np.reshape(data, (data.shape[0], aminoacids, features))
@@ -117,18 +117,17 @@ def binomial_distribution(prob_v):
 
     return binomial_v
 
+def binomial_draw_vec(p_vec, dtype='float32'):
+  shape = tf.shape(p_vec)
+  return tf.select(tf.less(tf.random_uniform(shape=shape, minval=0, maxval=1, dtype='float32'), p_vec), tf.ones(shape, dtype=dtype), tf.zeros(shape, dtype=dtype))
 
 def input_corrupt(X):
-    shape = X.shape
-    to_tensor = np.ones([batch_size, shape[1], shape[2]])
-    for j in range(shape[0]):
-        for i in range(shape[2]):
-            r_ind = np.random.choice(aminoacids, int(aminoacids / 2), replace=False)
-            to_tensor[j, r_ind, i] = 0
-    perturbation = tf.convert_to_tensor(to_tensor, tf.float32)
-    X = tf.math.multiply(X, perturbation)
-    return X
-  
+    def salt_and_pepper(X, rate=0.3):
+    a = binomial_draw(shape=tf.shape(X), p=1-rate)
+    b = binomial_draw(shape=tf.shape(X), p=0.5)
+    z = tf.zeros(tf.shape(X), dtype='float32')
+    c = tf.select(tf.equal(a, z), b, z)
+    return tf.add(tf.mul(X, a), c)  
 
 def input_corrupt_test(X):
     shape = X.shape
@@ -189,11 +188,11 @@ def show_secondary(array):
     plt.imshow(np.transpose(to_img[8,:,:]))
     plt.show()
 
+    
 ''' Build network '''
 X_0 = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, features), name='Pl_features')
 Y_0 = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, label_size), name="Pl_labels")
 Y_labels = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, label_size), name="Pl_labels_real")
-
 
 H1_dec = tf.zeros([batch_size, after_1_conv, n_filters])
 
