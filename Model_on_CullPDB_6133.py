@@ -37,29 +37,6 @@ def load_dataset():
     full_data = np.concatenate([X,Y], axis=2)
     
     return full_data
-  
-def load_cb513():
-    # Parameters
-    aminoacids = 700
-    features = 57
-
-    data = np.load('dataset_path')
-
-    # Reshape data
-    data = np.reshape(data, (data.shape[0], aminoacids, features))
-
-    # Build dataset
-    _onehot_X = data[:, :, 0:22]
-    _onehot_X = swap_onehot(_onehot_X)
-    Y = data[:, :, 22:30]
-    terminals = data[:, :, 31:33]
-    _solvent_accessibility = data[:, :, 33:35]
-    X = data[:, :, 35:57]
-
-    X = np.concatenate([X, terminals], axis=-1)
-    
-    return X, Y
-
 
 def split_dataset(data):
     # Split and shuffle train set and divide train test validation
