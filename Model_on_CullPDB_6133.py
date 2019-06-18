@@ -16,7 +16,7 @@ def load_dataset():
     aminoacids = 700
     features = 57
 
-    data = np.load('/content/drive/My Drive/Colab/cullpdb+profile_6133.npy')
+    data = np.load('dataset_path')
 
     # Reshape data
     data = np.reshape(data, (data.shape[0], aminoacids, features))
@@ -178,21 +178,16 @@ def accuracy_Q8(real, pred):
                     correct = correct + 1
     return correct / total
 
-def show_secondary(array, index, signal):
+def show_secondary(array):
     to_img = np.copy(array)
     for i in range(to_img.shape[0]):
         for j in range(to_img.shape[1]):
             for k in range(to_img.shape[2]):
                 if to_img[i, j , k] == 1:
                     to_img[i, j, k] = 255
-    filename = 'evolution'+ str(index) + '.svg'
     fig = plt.figure(figsize=(28,10))
     plt.imshow(np.transpose(to_img[8,:,:]))
-    if signal:
-      plt.imsave(filename, np.transpose(to_img[8,:,:]), format='svg')
     plt.show()
-    
-    
 
 ''' Build network '''
 X_0 = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, features), name='Pl_features')
@@ -275,9 +270,6 @@ global_loss_val = []
 global_loss_test = []
 
 for i in range(n_epoch):
-  signal = False
-  if i == 0:
-    signal = True
   print('Epoch: ', i+1)
   train_cost = []
   test_cost = []
@@ -340,18 +332,8 @@ for i in range(n_epoch):
       test_dict = {X_0: batch_X_test, Y_0: corrupt_Y_test, Y_labels: batch_Y_test}
       ce, test_batch_pred, evo, walk = sess.run((cross_entropy, Y_sample, Y_samples, Y_walkback), feed_dict=test_dict)
       if k == 0:
-        show_secondary(batch_Y_test, 99, signal)
-        show_secondary(test_batch_pred, 98 , signal)
-        show_secondary(corrupt_Y_test, 88, signal)
-        show_secondary(walk, 88, signal)
-
-        id = 0
-        if signal:
-          print('Evolution')
-          for samp in evo:
-            show_secondary(samp, id, signal) 
-            id = id + 1
-        signal = False
+        show_secondary(batch_Y_test)
+        show_secondary(test_batch_pred)
       test_cost.append(ce)
       test_scores.append(accuracy_Q8(batch_Y_test, test_batch_pred))
 
