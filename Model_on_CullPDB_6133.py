@@ -5,10 +5,10 @@ from matplotlib import pyplot as plt
 from sklearn.utils import shuffle
 import random
 
-
-from google.colab import drive
-from google.colab import files
-drive.mount('/content/drive')
+# If you want run the convolutional GSN on Colab
+#from google.colab import drive
+#from google.colab import files
+#drive.mount('/content/drive')
 
 
 def load_dataset():
@@ -28,7 +28,6 @@ def load_dataset():
     terminals = data[:, :, 31:33]
     _solvent_accessibility = data[:, :, 33:35]
     s_profile = data[:, :, 35:57]
-    
     
     X = np.concatenate([_onehot_X , terminals], axis=-1)
     X = np.concatenate([X, _solvent_accessibility ], axis=-1)
