@@ -221,10 +221,8 @@ for i in range(walkbacks):
 
 cross_entropies = [tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_labels, logits=lg) for lg in logits]
 cross_entropy = tf.reduce_sum(tf.stack(cross_entropies))
-
 reg = tf.nn.l2_loss(w1) + tf.nn.l2_loss(w2)
 cross_entropy = (cross_entropy + beta * reg)
-
 train_step = tf.train.AdamOptimizer(learning_rate).minimize(cross_entropy)
 
 
