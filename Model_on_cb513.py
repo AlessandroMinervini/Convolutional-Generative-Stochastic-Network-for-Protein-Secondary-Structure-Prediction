@@ -1,13 +1,13 @@
 import tensorflow as tf
-
 import numpy as np
 from PIL import Image
 from matplotlib import pyplot as plt
 from sklearn.utils import shuffle
 
-
-from google.colab import drive
-drive.mount('/content/drive')
+# If you want run the convolutional GSN on Colab
+#from google.colab import drive
+#from google.colab import files
+#drive.mount('/content/drive')
 
 
 def load_dataset():
@@ -76,8 +76,7 @@ def split_dataset(data):
     print(X_train.shape, 'x train shape')
     print(Y_train.shape, 'y train shape')
     
-    return X_train, Y_train, X_val, Y_val, X_test, Y_test
-  
+    return X_train, Y_train, X_val, Y_val, X_test, Y_test  
   
 def swap_onehot(data):
   swap_data = data[:,:,[0, 1, 3, 2, 5, 4, 7, 6, 8, 10, 9, 11, 13, 12, 15, 14, 16, 18, 17, 20, 19]]
@@ -111,13 +110,6 @@ n_batch_val = 16
 after_1_conv = 700
 learning_rate = 0.001
 beta = 0.01
-
-'''
-batch_size = 8
-n_batch_train = 700
-n_batch_test = 34
-n_batch_val = 32
-'''
 
 def binomial_distribution(prob_v):
     shape = tf.shape(prob_v)
@@ -202,7 +194,6 @@ def show_secondary(array):
 
 
 ''' Build the network '''
-
 X_0 = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, features), name='Pl_features')
 Y_0 = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, label_size), name="Pl_labels")
 Y_labels = tf.placeholder(tf.float32, shape=(batch_size, aminoacids, label_size), name="Pl_labels_real")
@@ -261,11 +252,8 @@ for i in range(walkbacks):
 
 cross_entropies = [tf.nn.sigmoid_cross_entropy_with_logits(labels=Y_labels, logits=lg) for lg in logits]
 cross_entropy = tf.reduce_sum(tf.stack(cross_entropies))
-
-
 reg = tf.nn.l2_loss(w1)+tf.nn.l2_loss(w2)
 cross_entropy = (cross_entropy + beta * reg)
-
 train_step = tf.train.AdamOptimizer(learning_rate).minimize(cross_entropy)
 
 
@@ -342,8 +330,6 @@ for i in range(n_epoch):
   global_loss_cb.append(cb_loss/(batch_size*aminoacids*label_size))
   global_scores_cb.append(cb_accuracy)
     
-
-  
 # Plot loss functions
 fig = plt.figure()
 plt.plot(range(n_epoch), global_loss_train, label='Training Loss')
