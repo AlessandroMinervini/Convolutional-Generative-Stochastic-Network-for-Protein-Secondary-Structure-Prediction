@@ -10,8 +10,11 @@ The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable 
 
 ## Performance on CullPDB_profile_6133
 
+Q8 Accuracy                |  Loss
+:-------------------------:|:-------------------------:
+![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/acc_6133.png)   |  ![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/loss_6133.png)
 
-# Performance on CB513
+## Performance on CB513
 
 ## References
 [1] Jian Zhou, Olga G. Troyanskaya (2014) - Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
