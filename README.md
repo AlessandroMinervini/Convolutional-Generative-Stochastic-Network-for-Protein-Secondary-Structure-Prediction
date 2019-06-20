@@ -16,7 +16,7 @@ Model is structured by:
 - 2 convolutional transposed layers, and 1 upsampling layer.
 
 ### Walkbacks
-Model generates for every input 12 samples, where the last is the prediction. Moreover generates 12 latent state(H_0..H_1_1).
+Model generates for every input 12 samples, where the last is the prediction. Moreover generates 12 latent state(H<sub>0</sub>...H<sub>11</sub>), in the figure there are 3 latent state for convenience.
 
 ### Weights initialization
 Weights are initializated according to Xavier Inizializer [5] and are shared tvhrough the network.
