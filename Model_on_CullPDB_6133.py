@@ -94,11 +94,10 @@ def binomial_distribution(prob_v):
     return binomial_v
 
 def binomial_draw_vec(p_vec, dtype='float32'):
-  shape = tf.shape(p_vec)
-  return tf.select(tf.less(tf.random_uniform(shape=shape, minval=0, maxval=1, dtype='float32'), p_vec), tf.ones(shape, dtype=dtype), tf.zeros(shape, dtype=dtype))
+    shape = tf.shape(p_vec)
+    return tf.select(tf.less(tf.random_uniform(shape=shape, minval=0, maxval=1, dtype='float32'), p_vec), tf.ones(shape, dtype=dtype), tf.zeros(shape, dtype=dtype))
 
 def input_corrupt(X):
-    def salt_and_pepper(X, rate=0.3):
     a = binomial_draw(shape=tf.shape(X), p=1-rate)
     b = binomial_draw(shape=tf.shape(X), p=0.5)
     z = tf.zeros(tf.shape(X), dtype='float32')
