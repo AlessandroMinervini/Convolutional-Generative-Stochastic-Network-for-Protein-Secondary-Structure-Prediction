@@ -3,7 +3,7 @@ An implementation for Deep Supervised and Convolutional Generative Stochastic Ne
 Convolutional Generative Stochastic Network is a particular variant of Generative Stochastic Network (Y.Bengio 2013)[2].
 
 ## Dataset
-The model is evaluates on CullPDB_profile_6133[3] and CB513[4] and are avaiable here: http://www.princeton.edu/~jzthree/datasets/ICML2014/
+The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable here: http://www.princeton.edu/~jzthree/datasets/ICML2014/
 
 ## References
 [1] Jian Zhou, Olga G. Troyanskaya (2014) - Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
