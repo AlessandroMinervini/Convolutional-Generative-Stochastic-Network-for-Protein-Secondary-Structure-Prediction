@@ -8,6 +8,10 @@ The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable 
 ## Model
 ![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/archit.jpg)
 
+## Performance on CullPDB_profile_6133
+
+
+# Performance on CB513
 
 ## References
 [1] Jian Zhou, Olga G. Troyanskaya (2014) - Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
