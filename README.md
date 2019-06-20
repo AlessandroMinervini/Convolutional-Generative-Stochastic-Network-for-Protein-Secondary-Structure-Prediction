@@ -20,7 +20,7 @@ Q8 Accuracy                |  Loss
 :-------------------------:|:-------------------------:
 ![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/acc_cb513.png)   |  ![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/loss_cb513.png)
 
-## Example of samples generate on fist epoch
+## Example of samples generate on first epoch
 
 ![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/predictions.png)
 
