@@ -8,6 +8,21 @@ The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable 
 ## Model
 ![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/archit.jpg)
 
+Model is structured by:
+Encoding:
+- 2 convolutional layers (activaction functions: tanh) and 1 mean pooling layer.
+Decoding:
+- 2 convolutional transposed layers, and 1 upsampling layer.
+
+### Weights initialization
+Weights are initializated according to Xavier Inizializer [5] and are shared tvhrough the network.
+
+### Regularization
+To regularize is used L2 regularization.
+
+### Loss function
+Loss function is Binary cross entropy, and Adam the optimizer.
+
 ## Performance on CullPDB_profile_6133
 
 Q8 Accuracy                |  Loss
@@ -33,6 +48,6 @@ Q8 Accuracy                |  Loss
 
 [4]  Cuff JA, Barton GJ (1999) - Evaluation and Improvement of Multiple Sequence Methods for Protein Secondary Structure Prediction
 
-
+[5] Xavier Glorot and Yoshua Bengio (2010) - Understanding the difficulty of training deep feedforward neural networks. International conference on artificial intelligence and statistics.
 
 
