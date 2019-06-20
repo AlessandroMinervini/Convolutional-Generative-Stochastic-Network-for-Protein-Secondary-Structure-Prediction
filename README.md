@@ -9,10 +9,14 @@ The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable 
 ![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/archit.jpg)
 
 Model is structured by:
-#### Encoding:
+#### Encoding phase:
 - 2 convolutional layers (activaction functions: tanh) and 1 mean pooling layer.
-#### Decoding:
+
+#### Decoding phase:
 - 2 convolutional transposed layers, and 1 upsampling layer.
+
+### Walkbacks
+Model generates for every input 12 samples, where the last is the prediction. Moreover generates 12 latent state(H_0..H_1_1).
 
 ### Weights initialization
 Weights are initializated according to Xavier Inizializer [5] and are shared tvhrough the network.
