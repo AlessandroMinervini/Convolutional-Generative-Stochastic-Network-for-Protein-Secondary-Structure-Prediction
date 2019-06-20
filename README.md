@@ -6,7 +6,7 @@ Convolutional Generative Stochastic Network is a particular variant of Generativ
 The model is evaluated on CullPDB_profile_6133[3] and CB513[4] and are avaiable here: http://www.princeton.edu/~jzthree/datasets/ICML2014/
 
 ## Model
-
+![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/archit.jpg)
 
 
 ## References
