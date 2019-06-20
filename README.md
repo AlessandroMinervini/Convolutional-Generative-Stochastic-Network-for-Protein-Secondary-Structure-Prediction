@@ -16,6 +16,14 @@ Q8 Accuracy                |  Loss
 
 ## Performance on CB513
 
+Q8 Accuracy                |  Loss
+:-------------------------:|:-------------------------:
+![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/acc_cb513.png)   |  ![](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/blob/master/images/loss_cb513.png)
+
+## Example of samples generate on fist epoch
+
+![alt text](https://github.com/AlessandroMinervini/Convolutional-Generative-Stochastic-Network-for-Protein-Secondary-Structure-Prediction/upload)
+
 ## References
 [1] Jian Zhou, Olga G. Troyanskaya (2014) - Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction
 
