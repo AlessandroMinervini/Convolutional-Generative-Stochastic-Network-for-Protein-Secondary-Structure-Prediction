@@ -98,8 +98,8 @@ def binomial_draw_vec(p_vec, dtype='float32'):
     return tf.select(tf.less(tf.random_uniform(shape=shape, minval=0, maxval=1, dtype='float32'), p_vec), tf.ones(shape, dtype=dtype), tf.zeros(shape, dtype=dtype))
 
 def input_corrupt(X, rate=0.3):
-    a = binomial_draw(shape=tf.shape(X), p=1-rate)
-    b = binomial_draw(shape=tf.shape(X), p=0.5)
+    a = binomial_distribution(shape=tf.shape(X), p=1-rate)
+    b = binomial_distribution(shape=tf.shape(X), p=0.5)
     z = tf.zeros(tf.shape(X), dtype='float32')
     c = tf.select(tf.equal(a, z), b, z)
     return tf.add(tf.mul(X, a), c)  
